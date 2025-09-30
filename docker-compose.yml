@@ -1,2 +1,18 @@
 services:
-# Servicço do back-end
+  api:
+    container_name: api_castflix
+    build:
+      context: ./api
+      dockerfile: src/Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+    networks:
+      - castflix-network
+    restart: unless-stopped
+
+networks:
+  castflix-network:
+    driver: bridge
