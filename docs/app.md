@@ -18,7 +18,7 @@ Podcast feutis em vídeos
   -Lista os espisódios podcasts em sessões de categorias
     
     ### Como vou implementar
-     vou retornar em uma api rest o nome do podcast,nome do episódio, imagem de capa, link, categorias
+      GET: vou retornar em uma api rest o nome do podcast,nome do episódio, imagem de capa, link, categorias
       ```js
       [
          {
