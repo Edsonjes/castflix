@@ -36,8 +36,7 @@ Podcast feutis em vídeos
             categorias: [humor,mentalidade,bodybuild]
         }
       ]
-       
-      ```
+    GET: filtra episódios por nomes de podcast retornando a lista de episódios baseado em  um parametro enviado pelo cliente 
         
      
 

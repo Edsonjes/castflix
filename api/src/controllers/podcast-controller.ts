@@ -1,18 +1,16 @@
 import { IncomingMessage, ServerResponse } from "http";
+import { servicelistEpisodes } from '../services/list-episodes-service';
+import { serviceFilterEpisode } from "../services/filter-episode-service";
 
 
-export const getListEpisodios = async (req: IncomingMessage, res: ServerResponse) =>{
+export const getListEpisodios = async (req: IncomingMessage, res: ServerResponse) => {
+    const data = await servicelistEpisodes();
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify([
-         {
-            podecastName: "Flow",
-            nomeEpisodio: "DANIEL LOPEZ - Flow #492",
-            categorias: ["humor","mentalidade","bodybuild"]
-        },
-        {
-            podecastName: "Flow",
-            nomeEpisodio: "ARTHUR PETRY - Flow #491",
-            categorias: ["humor,mentalidade","bodybuild"]
-        }
-      ]));
+    res.end(JSON.stringify(data));
+}
+
+export const getFilterEpisode = async (req: IncomingMessage, res: ServerResponse) => {
+    const data = await serviceFilterEpisode("Flow");
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(data));
 }
